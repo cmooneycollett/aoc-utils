@@ -1,4 +1,5 @@
 /// Represents a single two-dimensional point in Euclidean space with integer co-ordinates.
+#[derive(Clone, Copy, PartialEq, Eq, Hash)]
 pub struct Point2D {
     x: i64,
     y: i64,
