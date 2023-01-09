@@ -21,4 +21,20 @@ impl Point2D {
     pub fn peek_shift(&self, dx: i64, dy: i64) -> Point2D {
         Point2D::new(self.x + dx, self.y + dy)
     }
+
+    /// Gets the eight points surrounding the current point in two-dimensional space. Panics if
+    /// integer underflow or overflow would occur (i.e. if one of the fields of self is equal to
+    /// the minimum or maximum value of the type).
+    pub fn get_surrounding_points(&self) -> Vec<Point2D> {
+        vec![
+            self.peek_shift(0, -1),
+            self.peek_shift(1, -1),
+            self.peek_shift(1, 0),
+            self.peek_shift(1, 1),
+            self.peek_shift(0, 1),
+            self.peek_shift(-1, 1),
+            self.peek_shift(-1, 0),
+            self.peek_shift(-1, -1),
+        ]
+    }
 }
