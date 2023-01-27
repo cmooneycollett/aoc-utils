@@ -37,4 +37,9 @@ impl Point2D {
             self.peek_shift(-1, -1),
         ]
     }
+
+    /// Gets the Manhattan distance between the two points.
+    pub fn get_manhattan_distance(&self, other: &Point2D) -> u64 {
+        (self.x - other.x).unsigned_abs() + (self.y - other.y).unsigned_abs()
+    }
 }
