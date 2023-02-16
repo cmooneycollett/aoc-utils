@@ -10,6 +10,16 @@ impl Point2D {
         Self { x, y }
     }
 
+    /// Gets the value of the "x" field.
+    pub fn x(&self) -> i64 {
+        self.x
+    }
+
+    /// Gets the value of the "y" field.
+    pub fn y(&self) -> i64 {
+        self.y
+    }
+
     /// Shifts the point by the given deltas in the x- and y-directions.
     pub fn shift(&mut self, dx: i64, dy: i64) {
         self.x += dx;
