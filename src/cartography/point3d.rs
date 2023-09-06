@@ -100,4 +100,9 @@ impl Point3D {
             + (self.y - other.y).unsigned_abs()
             + (self.z - other.z).unsigned_abs()
     }
+
+    /// Calculates the absolute value of the co-ordinates with respect to the origin (0, 0, 0).
+    pub fn get_absolute_value(&self) -> f64 {
+        (self.x.pow(2) as f64 + self.y.pow(2) as f64 + self.z.pow(2) as f64).sqrt()
+    }
 }
