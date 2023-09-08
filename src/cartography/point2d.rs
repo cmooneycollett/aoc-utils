@@ -68,6 +68,11 @@ impl Point2D {
         (self.x - other.x).unsigned_abs() + (self.y - other.y).unsigned_abs()
     }
 
+    /// Gets the Manhattan distance of the current point from the origin (0, 0, 0).
+    pub fn get_manhattan_distance_origin(&self) -> u64 {
+        self.x.unsigned_abs() + self.y.unsigned_abs()
+    }
+
     /// Calculates the absolute value of the co-ordinates with respect to the origin (0, 0, 0).
     pub fn get_absolute_value(&self) -> f64 {
         (self.x.pow(2) as f64 + self.y.pow(2) as f64).sqrt()

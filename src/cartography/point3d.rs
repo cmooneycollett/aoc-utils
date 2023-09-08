@@ -94,11 +94,16 @@ impl Point3D {
         ]
     }
 
-    /// Gets the Manhattan distance between the current point and another Point3D.
+    /// Gets the Manhattan distance between the current point and another [`Point3D`].
     pub fn get_manhattan_distance(&self, other: &Point3D) -> u64 {
         (self.x - other.x).unsigned_abs()
             + (self.y - other.y).unsigned_abs()
             + (self.z - other.z).unsigned_abs()
+    }
+
+    /// Gets the Manhattan distance of the current point from the origin (0, 0, 0).
+    pub fn get_manhattan_distance_origin(&self) -> u64 {
+        self.x.unsigned_abs() + self.y.unsigned_abs() + self.z.unsigned_abs()
     }
 
     /// Calculates the absolute value of the co-ordinates with respect to the origin (0, 0, 0).
@@ -109,10 +114,9 @@ impl Point3D {
     /// Gets the absolute value of the vector leading from the current [`Point3D`] to the other
     /// [`Point3D`].
     pub fn get_absolute_value_from(&self, other: &Point3D) -> f64 {
-        (
-            (other.x() - self.x()).pow(2) as f64 +
-            (other.y() - self.y()).pow(2) as f64 +
-            (other.z() - self.z()).pow(2) as f64
-        ).sqrt()
+        ((other.x - self.x).pow(2) as f64
+            + (other.y - self.y).pow(2) as f64
+            + (other.z - self.z).pow(2) as f64)
+            .sqrt()
     }
 }
