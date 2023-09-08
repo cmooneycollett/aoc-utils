@@ -105,4 +105,14 @@ impl Point3D {
     pub fn get_absolute_value(&self) -> f64 {
         (self.x.pow(2) as f64 + self.y.pow(2) as f64 + self.z.pow(2) as f64).sqrt()
     }
+
+    /// Gets the absolute value of the vector leading from the current [`Point3D`] to the other
+    /// [`Point3D`].
+    pub fn get_absolute_value_from(&self, other: &Point3D) -> f64 {
+        (
+            (other.x() - self.x()).pow(2) as f64 +
+            (other.y() - self.y()).pow(2) as f64 +
+            (other.z() - self.z()).pow(2) as f64
+        ).sqrt()
+    }
 }

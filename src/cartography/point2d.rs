@@ -33,7 +33,7 @@ impl Point2D {
     }
 
     /// Gets the eight points surrounding the current point in two-dimensional space.
-    /// 
+    ///
     /// Panics if integer underflow or overflow would occur (i.e. if one of the fields of self is
     /// equal to the minimum or maximum value of the type).
     pub fn get_surrounding_points(&self) -> Vec<Point2D> {
@@ -51,7 +51,7 @@ impl Point2D {
 
     /// Gets the four points that are up, down, left and right from the current point in
     /// two-dimensional space.
-    /// 
+    ///
     /// Panics if integer underflow or overflow would occur (i.e. if one of the fields of self is
     /// equal to the minimum or maximum value of the type).
     pub fn get_adjacent_points(&self) -> Vec<Point2D> {
@@ -71,5 +71,11 @@ impl Point2D {
     /// Calculates the absolute value of the co-ordinates with respect to the origin (0, 0, 0).
     pub fn get_absolute_value(&self) -> f64 {
         (self.x.pow(2) as f64 + self.y.pow(2) as f64).sqrt()
+    }
+
+    /// Gets the absolute value of the vector leading from the current [`Point2D`] to the other
+    /// [`Point2D`].
+    pub fn get_absolute_value_from(&self, other: &Point2D) -> f64 {
+        ((other.x() - self.x()).pow(2) as f64 + (other.y() - self.y()).pow(2) as f64).sqrt()
     }
 }
